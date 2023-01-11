@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import '../styles/globals.css'
+import { SessionProvider } from 'next-auth/react'
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps: { session, ...pageProps } }) {
   const getLayout = Component.getLayout || ((page) => page);
   return getLayout(
     <>
@@ -27,7 +28,9 @@ export default function App({ Component, pageProps }) {
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
         <meta name="theme-color" content="#317EFB" />
       </Head>
-      <Component {...pageProps} />
+      <SessionProvider session={session}>
+        <Component {...pageProps} />
+      </SessionProvider>
     </>
   );
 }
