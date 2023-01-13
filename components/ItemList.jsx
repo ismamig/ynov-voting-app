@@ -1,12 +1,6 @@
 import { useState, useEffect } from "react";
 import Item from "./Item";
 
-export const items = [
-  {
-    title: "Item 1",
-  }
-]
-
 export default function ItemList() {
 
   const [proposals, setProposals] = useState([]);
@@ -19,11 +13,11 @@ export default function ItemList() {
     }
     fetchData();
   }, []);
-  
+
   return (
-    <div className="">
+    <div className="flex flex-col gap-4">
       {proposals.map((item, index) => (
-        <Item key={index} title={item.title} />
+        <Item key={index} title={item.title} id={item.id} desc={item.description} />
       ))}
     </div>
   )

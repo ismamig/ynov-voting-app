@@ -32,7 +32,7 @@ model Proposal {
 
 model Vote {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  value      String
+  value      Int
   proposal   Proposal @relation(fields: [proposalId], references: [id])
   user       User     @relation(fields: [userId], references: [id])
   proposalId String   @db.ObjectId

@@ -6,7 +6,11 @@ export default async function handler(req, res) {
     res.setHeader("Allow", "GET");
     res.status(405).end("Method Not Allowed");
   } else {
-    const proposals = await prisma.proposal.findMany({})
+    const proposals = await prisma.proposal.findMany({
+      include: {
+        vote: true,
+      }
+    })
     res.status(200).json(proposals);
     // res.status(200).json({ name: "John Doe" });
   }

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { useRouter } from "next/router"
 
 export default function Navbar() {
@@ -17,8 +18,8 @@ export default function Navbar() {
         </div>
         <div className="lg:flex md:flex hidden flex-none">
           <ul className="menu menu-horizontal px-1">
-            <li><a>Home</a></li>
-            <li><a>Profil</a></li>
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/profile">Profil</Link></li>
           </ul>
         </div>
       </div>
