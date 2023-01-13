@@ -16,6 +16,7 @@ export default function Item({ id, title, desc }) {
       body: JSON.stringify(value)
     })
     const data = await res.json()
+    setUserVote(data.value)
     const res2 = await fetch(`/api/votes/${id}`)
     .then((res) => res.json())
       .then((data) => setVotes(data))
@@ -58,8 +59,8 @@ export default function Item({ id, title, desc }) {
         <div className="text-center text-neutral-500">{desc}</div>
         {!hasVoted && (
           <div className="mt-6 flex justify-center gap-10">
-            <button className="btn btn-primary text-black rounded-md" onClick={() => vote(1)}>YES</button>
-            <button className="btn btn-error text-black rounded-md" onClick={() => vote(0)}>NO</button>
+            <button disabled={loading} className="btn btn-primary text-black rounded-md" onClick={() => vote(1)}>YES</button>
+            <button disabled={loading} className="btn btn-error text-black rounded-md" onClick={() => vote(0)}>NO</button>
           </div>
         )}
         {hasVoted && (

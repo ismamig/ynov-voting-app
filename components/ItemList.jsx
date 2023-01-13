@@ -16,9 +16,17 @@ export default function ItemList() {
 
   return (
     <div className="flex flex-col gap-4">
+      <div>
+        <h1 className="text-4xl font-bold">Proposals ({proposals ? proposals.length : "0"})</h1>
+      </div>
       {proposals.map((item, index) => (
         <Item key={index} title={item.title} id={item.id} desc={item.description} />
       ))}
+      {proposals.length === 0 && (
+        <>
+          <h1 className="text-center py-4 text-md">No proposals today...</h1>
+        </>
+      )}
     </div>
   )
 }

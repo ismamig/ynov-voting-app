@@ -14,7 +14,7 @@ export default function Navbar() {
     <>
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">{routes[pathname]}</a>
+          <a className="btn btn-ghost normal-case text-xl">RateIt!</a>
         </div>
         <div className="lg:flex md:flex hidden flex-none">
           <ul className="menu menu-horizontal px-1">
