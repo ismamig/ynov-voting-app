@@ -36,7 +36,7 @@ export default function Profile() {
 
   useEffect(() => {
     const fetchUserVotes = async () => {
-      const data = await fetch('http://localhost:3000/api/me/votes')
+      const data = await fetch('/api/me/votes')
       const votes = await data.json()
       if (votes) {
         setUserVotes(votes)
@@ -44,13 +44,13 @@ export default function Profile() {
     }
     fetchUserVotes()
     const fetchUser = async () => {
-      const data = await fetch('http://localhost:3000/api/me/info')
+      const data = await fetch('/api/me/info')
       const dbUser = await data.json()
       setUser(dbUser)
     }
     fetchUser()
     const fetchUserWithVotes = async () => {
-      const data = await fetch('http://localhost:3000/api/me')
+      const data = await fetch('/api/me')
       const dbUser = await data.json()
       setUser(dbUser)
       setVotes(dbUser.votes)
