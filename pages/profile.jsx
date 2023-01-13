@@ -44,13 +44,19 @@ export default function Profile() {
     }
     fetchUserVotes()
     const fetchUser = async () => {
+      const data = await fetch('http://localhost:3000/api/me/info')
+      const dbUser = await data.json()
+      setUser(dbUser)
+    }
+    fetchUser()
+    const fetchUserWithVotes = async () => {
       const data = await fetch('http://localhost:3000/api/me')
       const dbUser = await data.json()
       setUser(dbUser)
       setVotes(dbUser.votes)
     }
     if (userVotes) {
-      fetchUser()
+      fetchUserWithVotes()
     }
     setLoading(false)
     
